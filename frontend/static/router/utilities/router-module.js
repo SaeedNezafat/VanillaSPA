@@ -40,6 +40,7 @@ const RouterModule = (function () {
     }
 
     function applyRouteHook(route, from, to, matchRoute) {
+        console.log(matchRoute,route, 'saeed match route')
         if (route?.beforeRouteEnter && !matchRoute)
             route?.beforeRouteEnter(from, to)
 

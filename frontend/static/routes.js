@@ -53,6 +53,9 @@ export const routes = [
         path: '/contact-us',
         component: contactUsPage,
         title: 'Contact Us',
+        beforeRouteEnter(from, to) {
+            console.log(to, from, 'in component guard Enter')
+        },
         beforeRouteLeave(from, to) {
             console.log(to, from, 'in component guard Leave')
         },
