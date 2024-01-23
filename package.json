@@ -1,0 +1,13 @@
+{
+  "name": "spa",
+  "version": "1.0.0",
+  "description": "SPA Application",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Saeed Nezafat",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA Router</title>
+    <link rel="stylesheet" href="/static/styles/index.css">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><router-link path="/">Home</router-link></li>
+            <li><router-link path="/about">About</router-link></li>
+            <li><router-link path="/contact-us">Contact</router-link></li>
+            <li><router-link path="/posts/12">Post</router-link></li>
+            <li><router-link path="/about/about-me/about-me-2">About ME 2</router-link></li>
+            <li><router-link path="/about/about-me/about-me-3">About ME 3</router-link></li>
+            <li><router-link path="/about/about-me">About ME 1</router-link></li>
+            <li><button id="param">Click</button></li>
+            <li><button id="diffparams">Click</button></li>
+        </ul>
+    </nav>
+</header>
+<div id="app">
+
+</div>
+<script type="module" src="/static/router-config.js"></script>
+<script type="module" src="/static/index.js"></script>
+</body>
+</html>
