@@ -30,11 +30,11 @@ function handleRouterBeforeEach(routes, router, routerMode, targetRoutes) {
 
 const routeModules = (function () {
     function handleChangePath(routerMode, path) {
-        return routerMode === 'historyMode' ? `#${path}` : path;
+        return routerMode === 'hashMode' ? `#${path}` : path;
     }
 
     function getCurrentRoute(routerMode) {
-        return routerMode === 'historyMode' ? window.location.hash : `${window.location.pathname + window.location.search}`;
+        return routerMode === 'hashMode' ? window.location.hash : `${window.location.pathname + window.location.search}`;
     }
 
     function handleBeforeRouteLeave(route, matchRoute) {
@@ -69,8 +69,8 @@ export function foundMatchRoute(routes, routeTo, router, routerMode) {
         routesBuilder = null;
 
         if (foundRoute?.route) {
-            const matchRoute = routerMode === 'historyMode' ?
-                hashSeparator(routeTo, 'historyMode').match(pathToRegex(`${foundRoute.route.path}`))
+            const matchRoute = routerMode === 'hashMode' ?
+                hashSeparator(routeTo, 'hashMode').match(pathToRegex(`${foundRoute.route.path}`))
                 : routeTo.match(pathToRegex(`${foundRoute.route.path}`));
             routeModules.handleBeforeRouteLeave(foundRoute, matchRoute);
         }

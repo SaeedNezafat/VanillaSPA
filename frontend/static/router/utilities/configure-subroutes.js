@@ -24,7 +24,7 @@ function configureRoutes(mode) {
     }
 
     function foundRoute(routeTarget) {
-        const targetRoute = routerMode === 'historyMode' && routeTarget.includes('#') ? hashSeparator(routeTarget, 'historyMode') : routeTarget;
+        const targetRoute = routerMode === 'hashMode' && routeTarget.includes('#') ? hashSeparator(routeTarget, 'hashMode') : routeTarget;
         const foundedRoute = childrenRoutes.find(route => targetRoute.match(pathToRegex(`${route.parentPath ?? ''}${route.route.path}`)) !== null);
         if (foundedRoute)foundedRoute.result = targetRoute.match(pathToRegex(`${foundedRoute.parentPath ?? ''}${foundedRoute.route.path}`));
         return foundedRoute;

@@ -2,8 +2,8 @@ import hashSeparator from "./hash-separator.js";
 
 const RouterModule = (function () {
     function findChangedChild(currentRoute, targetRoute) {
-        const currentParts = window.location.hash ? hashSeparator(currentRoute, 'historyMode').split('/') : currentRoute.split('/');
-        const targetParts = window.location.hash ? hashSeparator(targetRoute, 'historyMode').split('/') : targetRoute.split('/');
+        const currentParts = window.location.hash ? hashSeparator(currentRoute, 'hashMode').split('/') : currentRoute.split('/');
+        const targetParts = window.location.hash ? hashSeparator(targetRoute, 'hashMode').split('/') : targetRoute.split('/');
 
         let equal = 0;
         for (let i = 0; i < targetParts.length; i++) {

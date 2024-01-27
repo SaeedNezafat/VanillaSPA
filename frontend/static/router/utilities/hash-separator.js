@@ -1,5 +1,5 @@
 function hashSeparator(path, routerMode) {
-    return routerMode === 'historyMode' ? path.split('#')[1] : path;
+    return routerMode === 'hashMode' ? path.split('#')[1] : path;
 }
 
 export default hashSeparator;

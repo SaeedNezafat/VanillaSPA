@@ -13,4 +13,4 @@ function guard(from, to, next) {
 }
 
 
-createRoute(routes, 'historyMode', guard);
+createRoute(routes, 'hashMode', guard);

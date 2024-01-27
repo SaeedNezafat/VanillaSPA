@@ -1,6 +1,6 @@
 import foundMatchRoute from "../utilities/found-match-route.js";
 
-export function handleHistoryMode(routes, router) {
+export function handleHashMode(routes, router) {
 
     document.addEventListener("click", (event) => {
         event.preventDefault();
@@ -10,8 +10,8 @@ export function handleHistoryMode(routes, router) {
     });
 
     function navigateTo(path) {
-        foundMatchRoute(routes, `#${path}`, router, 'historyMode')
+        foundMatchRoute(routes, `#${path}`, router, 'hashMode')
     }
 
-    foundMatchRoute(routes, window.location.hash, router, 'historyMode')
+    foundMatchRoute(routes, window.location.hash, router, 'hashMode')
 }

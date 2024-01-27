@@ -58,7 +58,7 @@ class ShowComponentFactory {
 
 function componentLoader(foundRoutes) {
     const currentRoute = foundRoutes[foundRoutes.length - 1];
-    const currentPath = window.location.hash ? hashSeparator(window.history.state.from, 'historyMode') : window.history.state.from;
+    const currentPath = window.location.hash ? hashSeparator(window.history.state.from, 'hashMode') : window.history.state.from;
     const matchRoute = currentPath.match(pathToRegex(`${currentRoute.route.path}`));
     RouterModule.applyRouteHook(currentRoute.route, window.history.state.from, window.history.state.to, matchRoute);
 

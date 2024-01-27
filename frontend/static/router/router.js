@@ -1,4 +1,4 @@
-import {handleHistoryMode} from "./history-mode/index.js";
+import {handleHashMode} from "./hash-mode/index.js";
 import {handleHTML5Mode} from "./html5-mode/index.js";
 import replacePlaceholderInUrl from './utilities/query-separator.js';
 import paramsSeparator from "./utilities/params-separator.js";
@@ -14,9 +14,9 @@ class RouteHandlerStrategy {
     }
 }
 
-class HistoryModeHandler extends RouteHandlerStrategy {
+class HashModeHandler extends RouteHandlerStrategy {
     handleRoute(routes, modifiedRoute, queryString, router) {
-        super.handleRoute(routes, `#${modifiedRoute}${queryString}`, router, 'historyMode');
+        super.handleRoute(routes, `#${modifiedRoute}${queryString}`, router, 'hashMode');
     }
 }
 
@@ -29,8 +29,8 @@ class HTML5ModeHandler extends RouteHandlerStrategy {
 class RouteHandlerFactory {
     createHandler(routerMode) {
         switch (routerMode) {
-            case 'historyMode':
-                return new HistoryModeHandler();
+            case 'hashMode':
+                return new HashModeHandler();
             case 'html5Mode':
                 return new HTML5ModeHandler();
             default:
@@ -63,7 +63,7 @@ class Router {
         };
         this.localRoutes = routes;
 
-        if (this.routeMode === 'historyMode' && !window.location.hash) {
+        if (this.routeMode === 'hashMode' && !window.location.hash) {
             window.location.hash = '/';
             window.location.pathname = '/';
         } else if (this.routeMode === 'html5Mode' && window.location.hash) {
@@ -72,7 +72,7 @@ class Router {
     }
 
      routeModeHandler (routerMode) {
-        if (routerMode === 'historyMode') handleHistoryMode(this.localRoutes, this.router);
+        if (routerMode === 'hashMode') handleHashMode(this.localRoutes, this.router);
         else if (routerMode === 'html5Mode')  handleHTML5Mode(this.localRoutes, this.router);
     }
 
@@ -106,7 +106,7 @@ class Router {
         const state = window.history.state;
         const {result, path, meta} = state?.route ?? {};
         const params = paramsSeparator(result, path);
-        const currentRoute = routerInstance.routeMode === 'historyMode' ? window.location.hash.slice(1) : window.location.href;
+        const currentRoute = routerInstance.routeMode === 'hashMode' ? window.location.hash.slice(1) : window.location.href;
         const queryString = currentRoute.split('?')?.[1];
 
         const queryParams = new URLSearchParams(queryString);
