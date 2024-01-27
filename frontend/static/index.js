@@ -26,7 +26,7 @@ const handleClickDiffParam = () => {
     })
 }
 
-const handleClickReplcae = () => {
+const handleClickReplace = () => {
     // router.push('/posts/126/router/22')
     // router.back(1)
 }
